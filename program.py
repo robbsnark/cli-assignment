@@ -14,20 +14,42 @@
 
 # you can return and fiddle with the store cash but not charity cash
 
+# ----------------------------------------------
+
+# THOUGHTS:
+# Give charity bin its own class ?
+# Does the PLAY AGAIN bit need its own class ?
+
+# ----------------------------------------------
+
+# START OF CATALOGUE CLASS:
+
+class Catalogue:
+    def cat():
+        print("This is where all the wares would be.")
+
+
+# END OF CATALOGUE CLASS
+
+# ----------------------------------------------
+
+# START OF MENU CLASS:
+
 class Menu:
     def menu(self):
         print("Welcome to the YARN STORE. \n" \
-        "We have all colours of YARN you'll ever need. \n" \
-        "You're welcome to BROWSE our catalogue and BUY anything you like. \n" \
-        "And don't forget to leave a little something in our charity bin.")
+            "We have all colours of YARN you'll ever need. \n" \
+            "You're welcome to BROWSE our catalogue and BUY anything you like. \n" \
+            "And don't forget to leave a little something in our charity bin.")
         print("What would you like to do? \n" \
-        "A - BROWSE CATALOGUE \n" \
-        "B - BUY WARES \n" \
-        "C - RETURN WARES \n" \
-        "D - LEAVE SHOP")
+            "A - BROWSE CATALOGUE \n" \
+            "B - BUY WARES \n" \
+            "C - RETURN WARES \n" \
+            "D - LEAVE SHOP")
 
     def browse(self):
         print("Browse chosen")
+        Catalogue.cat()
 
     def buy(self):
         print("Buy chosen")
@@ -40,9 +62,12 @@ class Menu:
         print("Hey, hold on! Wouldn't you like to spare a little something for our charity tin? \n" \
         "YES / NO")
         donate = input()
+
         if donate.upper() == "YES":
             print("How much would you like to donate?")
             donate_sum = input()
+            # something like:
+            # (int)donate_sum += charity_bin
         elif donate.upper() == "NO":
             print("Hmph, alright...")
         else:
@@ -55,7 +80,7 @@ class Menu:
 
 # END OF MENU CLASS
 
-# FILLER TEXT TO SEE IF THE REPO SYNC WORKS
+# ----------------------------------------------
 
 # START OF PROGRAM:
 
@@ -79,6 +104,21 @@ while shop_loop == True:
     else:
         print("Sorry, I didn't catch that.")
 
-class Catalogue:
-    def cat():
-        print("This is where all the wares would be.")
+# ASKING TO PLAY AGAIN:
+# NEEDED: way to loop back to shop menu
+
+print("Would you like to revisit the shop (PLAY AGAIN)? \n" \
+"YES / NO")
+revisit = input()
+
+if revisit.upper() == "YES":
+    shop_loop == True
+    # Then a loop option that works better than just "shop.menu()"
+elif revisit.upper() == "NO":
+    print("Off you go then.")
+else:
+    print("Come again?")
+
+# END OF PROGRAM
+
+# ----------------------------------------------
