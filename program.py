@@ -55,6 +55,8 @@ class Menu:
 
 # END OF MENU CLASS
 
+# FILLER TEXT TO SEE IF THE REPO SYNC WORKS
+
 # START OF PROGRAM:
 
 shop = Menu()
@@ -75,7 +77,7 @@ while shop_loop == True:
     elif menu_choice.upper() == "E":
         shop_loop = False
     else:
-        print("Sorry, I didn't catch that..")
+        print("Sorry, I didn't catch that.")
 
 class Catalogue:
     def cat():
