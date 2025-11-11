@@ -20,6 +20,12 @@
 # Give charity bin its own class ?
 # Does the PLAY AGAIN bit need its own class ?
 
+# TO-DO:
+# Create inventory / Catalogue
+# Implement buying + paying system
+# Implement return + refund system
+# 
+
 # ----------------------------------------------
 
 # START OF CATALOGUE CLASS:
@@ -52,10 +58,20 @@ class Menu:
         Catalogue.cat()
 
     def buy(self):
-        print("Buy chosen")
+        print("Do you know what you want or do you need to browse first? \n" \
+        "Y - YES, I know what I want \n" \
+        "N - NO, I would like to browse the catalogue \n" \
+        "X - I changed my mind.")
+        buy_choice = input()
+        if buy_choice.upper() == "Y":
+            print("Which colour yarn would you like? And which size?")
+            order = input()
+        elif buy_choice.upper() == "N":
+            Catalogue.cat()
+        else:
+            print("That's quite alright.")
 
     def ret_wares(self):
-        print("Return wares chosen")
         print("What would you like to return?")
 
     def charity(self):
