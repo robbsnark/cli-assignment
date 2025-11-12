@@ -30,10 +30,11 @@
 
 # START OF CATALOGUE CLASS:
 
-class Catalogue:
+class Catalogue():
     # Order by colour / weight / ?
-    def cat():
-        print("This is where all the wares would be.")
+    def cat(self):
+        print("Here you can pick a COLOUR, SIZE and finally TYPE OF FIBER.")
+
         colours = ['black', 'white', 'grey',
                   'green', 'brown', 'orange', 'yellow',
                   'red', 'pink', 'purple', 'blue']
@@ -41,8 +42,9 @@ class Catalogue:
         fibers = ['cotton', 'ribbon', 
                   'acrylic', 'chenille',
                   'wool', 'merino wool', 'alpaca wool']
+        
         print("Available colours are: ", colours, "\n" \
-        "Which colour would you like?")
+        "What colour would you like?")
         colour_choice = input()
         print("Available sizes are: ", weights, "\n" \
         "Which size would you like?")
@@ -50,7 +52,8 @@ class Catalogue:
         print("Available fibers are: ", fibers, "\n" \
         "Which type of fiber would you like?")
         fiber_choice = input()
-        ware_choice = colour_choice, " ", fiber_choice, " yarn in size ", weight_choice
+
+        ware_choice = (f"{colour_choice}, {fiber_choice}, {weight_choice}")
         return ware_choice
 
 
@@ -60,37 +63,27 @@ class Catalogue:
 
 # START OF MENU CLASS:
 
-class Menu:
+class Menu(Catalogue):
     def menu(self):
         print("Welcome to the YARN STORE. \n" \
             "We have all colours of YARN you'll ever need. \n" \
             "You're welcome to BROWSE our catalogue and BUY anything you like. \n" \
             "And don't forget to leave a little something in our charity bin.")
         print("What would you like to do? \n" \
-            "A - BROWSE CATALOGUE \n" \
             "B - BUY WARES \n" \
-            "C - RETURN WARES \n" \
-            "D - LEAVE SHOP")
-
-    def browse(self):
-        print("Browse chosen")
-        Catalogue.cat()
-        print()
+            "R - RETURN WARES \n" \
+            "L - LEAVE SHOP")
 
     def buy(self):
-        print("Do you know what you want or do you need to browse first? \n" \
-        "Y - YES, I know what I want \n" \
-        "N - NO, I would like to browse the catalogue \n" \
-        "X - I changed my mind.")
-
-        buy_choice = input()
-        if buy_choice.upper() == "Y":
-            print("Which colour yarn would you like? And which size?")
-            order = input()
-        elif buy_choice.upper() == "N":
-            Catalogue.cat()
-        else:
-            print("That's quite alright.")
+        ware_choice = self.cat()
+        print("So you want ", ware_choice + "? \n" \
+            "Y - YES, that's right \n" \
+            "N - NO, I changed my mind")
+        confirm_order = input()
+        if confirm_order.upper() == "Y":
+            print("")
+        elif confirm_order.upper() == "N":
+            print("nvm")            
 
     def ret_wares(self):
         print("What would you like to return?")
@@ -121,40 +114,41 @@ class Menu:
 
 # START OF PROGRAM:
 
-shop = Menu()
-shop_loop = True
+def enter_shop():
+    shop = Menu()
+    shop_loop = True
 
-while shop_loop == True:
-    shop.menu()
-    menu_choice = input()
+    while shop_loop:
+        shop.menu()
+        menu_choice = input()
 
-    if menu_choice.upper() == "A":
-        shop.browse()
-    elif menu_choice.upper() == "B":
-        shop.buy()
-    elif menu_choice.upper() == "C":
-        shop.ret_wares()
-    elif menu_choice.upper() == "D":
-        shop.leave()
-    elif menu_choice.upper() == "E":
-        shop_loop = False
-    else:
-        print("Sorry, I didn't catch that.")
+        if menu_choice.upper() == "B":
+            shop.buy()
+        elif menu_choice.upper() == "R":
+            shop.ret_wares()
+        elif menu_choice.upper() == "L":
+            shop.leave()
+        elif menu_choice.upper() == "E":
+            shop_loop = False
+        else:
+            print("Sorry, I didn't catch that.")
 
 # ASKING TO PLAY AGAIN:
-# NEEDED: way to loop back to shop menu
 
-print("Would you like to revisit the shop (PLAY AGAIN)? \n" \
-"YES / NO")
-revisit = input()
+while True:
+    enter_shop()
 
-if revisit.upper() == "YES":
-    shop_loop == True
-    # Then a loop option that works better than just "shop.menu()"
-elif revisit.upper() == "NO":
-    print("Off you go then.")
-else:
-    print("Come again?")
+    print("Would you like to revisit the shop (PLAY AGAIN)? \n" \
+        "YES / NO")
+    revisit = input()
+
+    if revisit.upper() == "YES":
+        continue
+    elif revisit.upper() == "NO":
+        print("Off you go then.")
+        break
+    else:
+        print("Come again?")
 
 # END OF PROGRAM
 
