@@ -31,8 +31,27 @@
 # START OF CATALOGUE CLASS:
 
 class Catalogue:
+    # Order by colour / weight / ?
     def cat():
         print("This is where all the wares would be.")
+        colours = ['black', 'white', 'grey',
+                  'green', 'brown', 'orange', 'yellow',
+                  'red', 'pink', 'purple', 'blue']
+        weights = [0, 1, 2, 3, 4, 5, 6, 7]
+        fibers = ['cotton', 'ribbon', 
+                  'acrylic', 'chenille',
+                  'wool', 'merino wool', 'alpaca wool']
+        print("Available colours are: ", colours, "\n" \
+        "Which colour would you like?")
+        colour_choice = input()
+        print("Available sizes are: ", weights, "\n" \
+        "Which size would you like?")
+        weight_choice = input()
+        print("Available fibers are: ", fibers, "\n" \
+        "Which type of fiber would you like?")
+        fiber_choice = input()
+        ware_choice = colour_choice, " ", fiber_choice, " yarn in size ", weight_choice
+        return ware_choice
 
 
 # END OF CATALOGUE CLASS
@@ -56,12 +75,14 @@ class Menu:
     def browse(self):
         print("Browse chosen")
         Catalogue.cat()
+        print()
 
     def buy(self):
         print("Do you know what you want or do you need to browse first? \n" \
         "Y - YES, I know what I want \n" \
         "N - NO, I would like to browse the catalogue \n" \
         "X - I changed my mind.")
+
         buy_choice = input()
         if buy_choice.upper() == "Y":
             print("Which colour yarn would you like? And which size?")
