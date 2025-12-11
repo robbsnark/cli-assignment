@@ -34,7 +34,8 @@ Option 1: Browse / Select thing to buy
     Select colour, size and material
     Confirm selection
         Or pick again
-    NEEDED: Save selection / confirm purchase
+    NEEDED: Save selection to basket
+    NEEDED: Purchase
 Option 2: Return thing
 Option 3: Exit store
 

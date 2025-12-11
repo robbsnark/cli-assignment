@@ -1,7 +1,8 @@
-import menu
+import menu, checkout
 
 def enter_shop():
     shop = menu.Menu()
+    pay = checkout.Checkout()
     shop_loop = True
 
     while shop_loop:
@@ -9,11 +10,15 @@ def enter_shop():
         menu_choice = input()
 
         if menu_choice.upper() == "B":
-            shop.buy()
+            item = shop.buy()
+            if item:
+                pay.add_item(item)
         elif menu_choice.upper() == "R":
             shop.ret_wares()
         elif menu_choice.upper() == "L":
-            shop.leave()
+            pay.basket()
+            shop.charity()
+            shop_loop = False
         elif menu_choice.upper() == "E":
             shop_loop = False
         else:

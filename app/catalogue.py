@@ -1,5 +1,4 @@
 class Catalogue():
-    # Order by colour / weight / ?
     def cat(self):
         print("Here you can pick a COLOUR, SIZE and finally TYPE OF FIBER.")
 
