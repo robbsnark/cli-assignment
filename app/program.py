@@ -1,7 +1,7 @@
 
 # ----------------------------------------------
 
-import shop, menu, catalogue
+import main, menu, catalogue
 
 # START OF CATALOGUE CLASS:
 
@@ -111,7 +111,7 @@ import shop, menu, catalogue
 # ASKING TO PLAY AGAIN:
 
 while True:
-    shop.enter_shop()
+    main.enter_shop()
 
     print("Would you like to revisit the shop (PLAY AGAIN)? \n" \
         "YES / NO")

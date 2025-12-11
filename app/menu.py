@@ -1,4 +1,4 @@
-import catalogue
+import catalogue, main
 
 class Menu(catalogue.Catalogue):
     def menu(self):
@@ -20,7 +20,8 @@ class Menu(catalogue.Catalogue):
         if confirm_order.upper() == "Y":
             print("")
         elif confirm_order.upper() == "N":
-            print("nvm")            
+            print("nvm")
+            self.buy()    
 
     def ret_wares(self):
         print("What would you like to return?")
