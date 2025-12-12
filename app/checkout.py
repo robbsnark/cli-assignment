@@ -2,12 +2,12 @@ from catalogue import Catalogue
 
 class Checkout:
     def __init__(self):
-        self.items = []
+        self.wares = []
 
-    def add_item(self, item):
-        self.items.append(item)
+    def add_ware(self, ware):
+        self.wares.append(ware)
 
     def basket(self):
         print("Your basket contains:")
-        for item in self.items:
-            print("-", item)
+        for ware in self.wares:
+            print("-", ware)

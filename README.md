@@ -18,12 +18,11 @@ you can return and fiddle with the store cash but not charity cash
 
 THOUGHTS:
 Give charity bin its own class ?
-Does the PLAY AGAIN bit need its own class ?
+'ware' is a pretty unfortunate term to use, I realised pretty late, but it had a vibe and I didn't care to change it to something less scary like "product" or whatever
 
 TO-DO:
-Create inventory / Catalogue
 Implement buying + paying system
-Implement return + refund system 
+Implement return + refund system
 Wallet
 
 -----------------------------------------------

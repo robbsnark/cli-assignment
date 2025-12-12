@@ -1,4 +1,5 @@
 import catalogue, checkout
+import json
 
 class Menu(catalogue.Catalogue):
     def menu(self):
@@ -8,28 +9,36 @@ class Menu(catalogue.Catalogue):
             "And don't forget to leave a little something in our charity bin.")
         print("What would you like to do? \n" \
             "B - BUY WARES \n" \
-            "R - RETURN WARES \n" \
+            "V - VIEW BASKET \n" \
             "L - LEAVE SHOP")
 
     def buy(self):
         while True:
             ware_choice = self.cat()
+            
             print("So you want ", ware_choice + "? \n" \
                 "Y - YES, that's right \n" \
                 "N - NO, I changed my mind")
+            
             confirm_order = input()
             if confirm_order.upper() == "Y":
                 print("Selection confirmed.")
+                with open('ware_choice.json', 'w') as file:
+                    json.dump(ware_choice, file)
                 return ware_choice
+            
             elif confirm_order.upper() == "N":
                 print("That's quite alright. Pick again.")
                 continue
+
             else:
                 print("Say again?")
                 continue
 
-    def ret_wares(self):
-        print("What would you like to return?")
+    def view_basket(self):
+        with open('ware_choice.json', 'r') as file:
+            view_basket = json.load(file)
+        print(view_basket)
 
     def charity(self):
         print("Hey, hold on! Wouldn't you like to spare a little something for our charity tin? \n" \

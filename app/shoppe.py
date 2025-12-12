@@ -10,11 +10,12 @@ def enter_shop():
         menu_choice = input()
 
         if menu_choice.upper() == "B":
-            item = shop.buy()
-            if item:
-                pay.add_item(item)
-        elif menu_choice.upper() == "R":
-            shop.ret_wares()
+            ware = shop.buy()
+            if ware:
+                pay.add_ware(ware)
+        elif menu_choice.upper() == "V":
+            # pay.basket()
+            shop.view_basket()
         elif menu_choice.upper() == "L":
             pay.basket()
             shop.charity()
