@@ -22,7 +22,6 @@ Give charity bin its own class ?
 
 TO-DO:
 Implement buying + paying system
-Implement return + refund system
 Wallet
 
 -----------------------------------------------
@@ -33,9 +32,9 @@ Option 1: Browse / Select thing to buy
     Select colour, size and material
     Confirm selection
         Or pick again
-    NEEDED: Save selection to basket
     NEEDED: Purchase
-Option 2: Return thing
+Option 2: View basket
 Option 3: Exit store
+BUT WAIT! Charity bin
 
 -->

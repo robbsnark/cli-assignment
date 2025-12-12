@@ -6,7 +6,6 @@ while True:
     print("Would you like to revisit the shop (PLAY AGAIN)? \n" \
         "YES / NO")
     revisit = input()
-
     if revisit.upper() == "YES":
         continue
     elif revisit.upper() == "NO":

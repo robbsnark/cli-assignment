@@ -4,7 +4,7 @@ import json
 class Menu(catalogue.Catalogue):
     def menu(self):
         print("Welcome to the YARN STORE. \n" \
-            "We have all colours of YARN you'll ever need. \n" \
+            "We have all colours and kinds of YARN you'll ever need. \n" \
             "You're welcome to BROWSE our catalogue and BUY anything you like. \n" \
             "And don't forget to leave a little something in our charity bin.")
         print("What would you like to do? \n" \
@@ -15,8 +15,8 @@ class Menu(catalogue.Catalogue):
     def buy(self):
         while True:
             ware_choice = self.cat()
-            
-            print("So you want ", ware_choice + "? \n" \
+
+            print("So you want", ware_choice + "? \n" \
                 "Y - YES, that's right \n" \
                 "N - NO, I changed my mind")
             
@@ -30,15 +30,16 @@ class Menu(catalogue.Catalogue):
             elif confirm_order.upper() == "N":
                 print("That's quite alright. Pick again.")
                 continue
-
             else:
                 print("Say again?")
                 continue
+            
 
     def view_basket(self):
         with open('ware_choice.json', 'r') as file:
             view_basket = json.load(file)
-        print(view_basket)
+        print("Your basket contains: ", view_basket)
+
 
     def charity(self):
         print("Hey, hold on! Wouldn't you like to spare a little something for our charity tin? \n" \
@@ -58,6 +59,7 @@ class Menu(catalogue.Catalogue):
 
     def leave(self):
         print("Leave chosen")
-        pay = checkout.Checkout()
-        pay.basket()
+        # pay = checkout.Checkout()
+        # pay.basket()
+        self.view_basket()
         self.charity()
