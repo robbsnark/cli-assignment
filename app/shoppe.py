@@ -1,4 +1,4 @@
-import menu, checkout
+from app import menu, checkout
 
 def enter_shop():
     shop = menu.Menu()
@@ -14,14 +14,10 @@ def enter_shop():
             if ware:
                 pay.add_ware(ware)
         elif menu_choice.upper() == "V":
-            # pay.basket()
             shop.view_basket()
         elif menu_choice.upper() == "L":
             pay.basket()
-            # pay.pay()
             shop.charity()
-            shop_loop = False
-        elif menu_choice.upper() == "E":
             shop_loop = False
         else:
             print("Sorry, I didn't catch that.")

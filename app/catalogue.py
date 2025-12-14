@@ -1,4 +1,4 @@
-from ware import Ware
+from app.ware import Ware
 
 class Catalogue():
     def cat(self):

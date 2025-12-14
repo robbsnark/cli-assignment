@@ -1,4 +1,4 @@
-import catalogue, checkout
+from app import catalogue, checkout
 import json
 
 class Menu(catalogue.Catalogue):
@@ -42,24 +42,24 @@ class Menu(catalogue.Catalogue):
 
 
     def charity(self):
-        print("Hey, hold on! Wouldn't you like to spare a little something for our charity tin? \n" \
-        "YES / NO")
-        donate = input()
+        charity_loop = True
+        while charity_loop:
+            print("Hey, hold on! Wouldn't you like to spare a little something for our charity tin? \n" \
+            "YES / NO")
+            donate = input()
 
-        if donate.upper() == "YES":
-            print("How much would you like to donate?")
-            donate_sum = input()
-            # something like:
-            # (int)donate_sum += charity_bin
-        elif donate.upper() == "NO":
-            print("Hmph, alright...")
-        else:
-            print("Say again?")
-            self.charity()
+            if donate.upper() == "YES":
+                print("How much would you like to donate?")
+                donate_sum = input()
+                # something like:
+                # (int)donate_sum += charity_bin
+            elif donate.upper() == "NO":
+                print("Hmph, alright...")
+                charity_loop = False
+            else:
+                print("Say again?")
 
     def leave(self):
         print("Leave chosen")
-        # pay = checkout.Checkout()
-        # pay.basket()
         self.view_basket()
         self.charity()

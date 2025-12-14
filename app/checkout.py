@@ -1,4 +1,4 @@
-from catalogue import Catalogue
+from app.catalogue import Catalogue
 import json
 
 class Checkout:
@@ -31,8 +31,7 @@ class Checkout:
         total = self.total()
         if self.balance >= total:
             self.balance -= total
-            print("Payment successful!")
-            print("Remaining balance:", self.balance)
+            print("Thank you kindly. Your wallet still contains:", self.balance)
             self.wares.clear()
             with open('ware_choice.json', 'r') as ware_choice, open('receipts.json', 'r') as receipts:
                 receipts_insert = json.load(ware_choice)
@@ -41,5 +40,4 @@ class Checkout:
             with open('receipts.json', 'w') as receipts:
                 json.dump(receipts, destination)
         else:
-            print("Insufficient funds.")
-        # move json ware_choice to a receipt file
+            print("It seems you don't have enough funds.")

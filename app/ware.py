@@ -1,5 +1,4 @@
 
-
 class Ware:
     def __init__(self, colour, weight, fiber):
         self.colour = colour
