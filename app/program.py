@@ -1,4 +1,4 @@
-from app import shoppe
+import shoppe
 
 while True:
     shoppe.enter_shop()

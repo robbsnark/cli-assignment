@@ -1,4 +1,4 @@
-from app.ware import Ware
+from ware import Ware
 
 class Catalogue():
     def cat(self):
@@ -28,7 +28,3 @@ class Catalogue():
         fiber_choice = input().upper()
 
         return Ware(colour_choice, weight_choice, fiber_choice)
-
-        # # ware_choice = (f"{colour_choice}, {fiber_choice}, {weight_choice}")
-        # ware_choice = (f"{colour_choice} {fiber_choice} yarn in size {weight_choice}").upper()
-        # return ware_choice

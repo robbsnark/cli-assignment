@@ -1,4 +1,4 @@
-from app.catalogue import Catalogue
+from catalogue import Catalogue
 import json
 
 class Checkout:
@@ -22,9 +22,9 @@ class Checkout:
         "Y - YES, I'd like to pay \n" \
         "N - NO, I'd like to keep browsing")
         checkout_choice = input()
-        if checkout_choice == "Y".upper():
+        if checkout_choice.upper() == "Y":
             self.pay()
-        elif checkout_choice == "N".upper():
+        elif checkout_choice.upper() == "N":
             print("Go ahead.")
 
     def pay(self):
@@ -32,12 +32,11 @@ class Checkout:
         if self.balance >= total:
             self.balance -= total
             print("Thank you kindly. Your wallet still contains:", self.balance)
+
+            self.wares = []
+            with open('receipts.json', 'w') as file:
+                json.dump(self.wares, file)
+            self.wares = {}
             self.wares.clear()
-            with open('ware_choice.json', 'r') as ware_choice, open('receipts.json', 'r') as receipts:
-                receipts_insert = json.load(ware_choice)
-                destination = json.load(receipts)
-                destination.append(receipts_insert)
-            with open('receipts.json', 'w') as receipts:
-                json.dump(receipts, destination)
         else:
             print("It seems you don't have enough funds.")

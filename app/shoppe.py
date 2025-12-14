@@ -1,4 +1,8 @@
-from app import menu, checkout
+import menu, checkout
+
+# PROGRAM START --------------------------------------
+# 'shoppe.py' contains the workings of the main menu
+# This is where the program starts and where the user is usually sent after an action
 
 def enter_shop():
     shop = menu.Menu()
@@ -17,7 +21,9 @@ def enter_shop():
             shop.view_basket()
         elif menu_choice.upper() == "L":
             pay.basket()
-            shop.charity()
+            # shop.charity()
             shop_loop = False
         else:
             print("Sorry, I didn't catch that.")
+
+# -----------------------------------------------
