@@ -21,8 +21,10 @@ Give charity bin its own class ?
 'ware' is a pretty unfortunate term to use, I realised pretty late, but it had a vibe and I didn't care to change it to something less scary like "product" or whatever
 
 TO-DO:
-Implement buying + paying system
-Wallet
+Implement buying + paying system + wallet
+Charity system
+>> TESTS + folder for pytest
+>> Folder for saving 'stock and receipts' in a json file
 
 -----------------------------------------------
 

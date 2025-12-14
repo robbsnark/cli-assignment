@@ -2,6 +2,8 @@ import catalogue, checkout
 import json
 
 class Menu(catalogue.Catalogue):
+    basket = []
+
     def menu(self):
         print("Welcome to the YARN STORE. \n" \
             "We have all colours and kinds of YARN you'll ever need. \n" \
@@ -16,17 +18,15 @@ class Menu(catalogue.Catalogue):
         while True:
             ware_choice = self.cat()
 
-            print("So you want", ware_choice + "? \n" \
+            print("So you want", ware_choice, "? \n" \
                 "Y - YES, that's right \n" \
                 "N - NO, I changed my mind")
             
             confirm_order = input()
             if confirm_order.upper() == "Y":
                 print("Selection confirmed.")
-                with open('ware_choice.json', 'w') as file:
-                    json.dump(ware_choice, file)
+                self.basket.append(str(ware_choice))
                 return ware_choice
-            
             elif confirm_order.upper() == "N":
                 print("That's quite alright. Pick again.")
                 continue
@@ -36,9 +36,9 @@ class Menu(catalogue.Catalogue):
             
 
     def view_basket(self):
-        with open('ware_choice.json', 'r') as file:
-            view_basket = json.load(file)
-        print("Your basket contains: ", view_basket)
+        print("Your basket contains:", self.basket)
+        for b in self.basket:
+            print("•")
 
 
     def charity(self):

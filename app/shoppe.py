@@ -18,6 +18,7 @@ def enter_shop():
             shop.view_basket()
         elif menu_choice.upper() == "L":
             pay.basket()
+            # pay.pay()
             shop.charity()
             shop_loop = False
         elif menu_choice.upper() == "E":
