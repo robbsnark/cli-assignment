@@ -1,10 +1,14 @@
 
+# 'ware.py' knows what the prices of items are based on their material and weight
+# This is where the charge is calculated
+
 class Ware:
     def __init__(self, colour, weight, fiber):
         self.colour = colour
         self.weight = int(weight)
         self.fiber = fiber
         self.price = self.calculate_price()
+
 
     def calculate_price(self):
         fiber_prices = {
@@ -23,7 +27,7 @@ class Ware:
         elif 6 <= self.weight <= 7:
             weight_price = 10
         else:
-            print("Please pick a weight between 0 and 7.")
+            raise ValueError("Please pick a weight between 0 and 7.")
 
         fiber_price = fiber_prices[self.fiber]
         total_price = fiber_price + weight_price

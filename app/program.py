@@ -1,5 +1,7 @@
 import shoppe
 
+# 'program.py' runs the program and asks afterwards if the user wants to play again
+
 while True:
     shoppe.enter_shop()
 
